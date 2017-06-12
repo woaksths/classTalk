@@ -30,16 +30,18 @@ public class MemberController {
 
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	public ModelAndView login(HttpServletRequest request, MembershipVO membershipVO) {
+
 		MembershipVO mvo = memberDAO.login(membershipVO);
-		if (mvo != null && mvo.getAjouMemberVO().getClassification() == 1) {
-			request.getSession().setAttribute("mvo", mvo);
-			System.out.println("교수님 권한 로그인 성공");
-			return new ModelAndView("member", "mvo", mvo);
-		} else if (mvo != null && mvo.getAjouMemberVO().getClassification() == 0) {
-			System.out.println("학생 로그인 ");
+
+		if (mvo == null) {
+			System.out.println("회원정보 일치하지 않습니다");
 			return new ModelAndView("login_fail");
+		} else if (mvo.getAjouMemberVO().getClassification() == 1) {
+			System.out.println("교수권한");
+			request.getSession().setAttribute("mvo", mvo);
+			return new ModelAndView("login_success");
 		} else {
-			System.out.println("회원 정보가 일치하지 않습니다.");
+			System.out.println("학생 진입");
 			return new ModelAndView("login_fail");
 		}
 	}
@@ -72,9 +74,9 @@ public class MemberController {
 		for (int i = 0; i < member.size(); i++) {
 			MembershipVO mvo = member.get(i);
 			JSONObject row = new JSONObject();
-			row.put("id", mvo.getId());
-			row.put("email", mvo.getE_mail());
-			row.put("password", mvo.getPassword());
+			row.put("id", mvo.getID());
+			row.put("email", mvo.getEMAIL());
+			row.put("password", mvo.getPASSWORD());
 			jarray.add(i, row);
 		}
 		jsonMain.put("sendData", jarray);

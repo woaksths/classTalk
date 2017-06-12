@@ -16,6 +16,8 @@ public class MemberDAO {
 	private SqlSessionTemplate template;
 	
 	public MembershipVO login(MembershipVO membershipVO){		
+		System.out.println("dao 로그인");
+		System.out.println(membershipVO.getID()+"  "+membershipVO.getPASSWORD());
 		return template.selectOne("member.login",membershipVO);
 	}
 	

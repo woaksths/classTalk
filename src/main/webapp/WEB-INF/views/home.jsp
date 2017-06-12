@@ -19,8 +19,8 @@
                 <p class="form-title">
                     Class Talk</p>
                 <form class="login" method="post" action="${pageContext.request.contextPath}/login.do">
-                <input type="text" placeholder="Username" name="id" />
-                <input type="password" placeholder="Password" name="password" />
+                <input type="text" placeholder="Username" name="ID" id="ID" />
+                <input type="password" placeholder="Password" name="PASSWORD" id="PASSWORD"/>
                 <input type="submit" value="Sign In" class="btn btn-success btn-sm">   
                 <div class="remember-forgot">
                     <div class="row">

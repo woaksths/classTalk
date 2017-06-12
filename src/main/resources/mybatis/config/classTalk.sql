@@ -34,5 +34,10 @@ FROM MEMBERSHIP M, AJOUMEMBER A
 WHERE A.ID = M. ID;
 
 
+SELECT A.NAME, A.CLASSIFICATION, M.PASSWORD, M.ID   
+FROM   MEMBERSHIP M, AJOUMEMBER A 
+WHERE A.ID=M.ID AND M.ID='4' AND M.PASSWORD='1234';
+ 
 
- select id,password,email from MEMBERSHIP  where id='2' and password='1234'
+
+select id,password,email from MEMBERSHIP  where id='2' and password='1234'

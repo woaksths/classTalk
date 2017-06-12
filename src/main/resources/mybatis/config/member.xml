@@ -4,27 +4,43 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
+	<resultMap type="membershipVO" id="ajouMemberRM">
+		<result column="id" property="ajouMemberVO.id" />
+		<result column="age" property="ajouMemberVO.age" />
+		<result column="name" property="ajouMemberVO.name" />
+		<result column="grade" property="ajouMemberVO.grade" />
+		<result column="sex" property="ajouMemberVO.sex" />
+		<result column="classification" property="ajouMemberVO.classification" />
+	</resultMap>
+
 
 	<select id="showMemberList" resultType="membershipVO">
-		SELECT A.NAME,
+		SELECT
+		A.NAME,
 		A.CLASSIFICATION, M.PASSWORD, M.ID
+		FROM MEMBERSHIP M, AJOUMEMBER
+		A
+		WHERE
+		A.ID = M. ID
+	</select>
+
+
+	<select id="login" parameterType="membershipVO" resultMap="ajouMemberRM">
+
+		SELECT A.NAME, A.CLASSIFICATION, M.PASSWORD, M.ID
 		FROM MEMBERSHIP M, AJOUMEMBER A
-		WHERE A.ID = M. ID
-	</select>
-
-	<sql id="selectMember">
-		select id,password,EMAIL from MEMBERSHIP
-	</sql>
-	<select id="login" parameterType="membershipVO" resultType="membershipVO">
-		<include refid="selectMember" />
-		where id=#{id} and password=#{password}
+		WHERE A.ID=M.ID AND M.ID=#{ID} AND M.PASSWORD=#{PASSWORD}
 	</select>
 
 
-	<select id="loginProfessor" resultMap="AjouMemberVO">
-		SELECT A.NAME, A.CLASSIFICATION,M.EMAIL
+	<select id="loginProfessor" resultMap="ajouMemberRM">
+		SELECT
+		A.NAME,
+		A.CLASSIFICATION,M.EMAIL
 		FROM AJOUMEMBER A, MEMBERSHIP M
-		WHERE A.ID= M.ID AND A.CLASSIFICATION=1
+		WHERE
+		A.ID= M.ID
+		AND A.CLASSIFICATION=1
 	</select>
 </mapper>
 
