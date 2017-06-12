@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sql Mapper -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+
+	<select id="showMemberList" resultType="membershipVO">
+		SELECT A.NAME,
+		A.CLASSIFICATION, M.PASSWORD, M.ID
+		FROM MEMBERSHIP M, AJOUMEMBER A
+		WHERE A.ID = M. ID
+	</select>
+
+	<sql id="selectMember">
+		select id,password,EMAIL from MEMBERSHIP
+	</sql>
+	<select id="login" parameterType="membershipVO" resultType="membershipVO">
+		<include refid="selectMember" />
+		where id=#{id} and password=#{password}
+	</select>
+
+
+	<select id="loginProfessor" resultMap="AjouMemberVO">
+		SELECT A.NAME, A.CLASSIFICATION,M.EMAIL
+		FROM AJOUMEMBER A, MEMBERSHIP M
+		WHERE A.ID= M.ID AND A.CLASSIFICATION=1
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
