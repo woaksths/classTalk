@@ -1,36 +1,33 @@
 package org.ajou.springmvc.model;
 
-import java.sql.Time;
-
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class CourseVO {
 
-	
-	private int courseNum;
+	private int courseId;
 	private String courseName;
 	private int semester;
-	private Time time;
-	
+	private String course_time;
+
 	public CourseVO() {
 		super();
 	}
 
-	public CourseVO(int courseNum, String courseName, int semester, Time time) {
+	public CourseVO(int courseId, String courseName, int semester, String course_time) {
 		super();
-		this.courseNum = courseNum;
+		this.courseId = courseId;
 		this.courseName = courseName;
 		this.semester = semester;
-		this.time = time;
+		this.course_time = course_time;
 	}
 
-	public int getCourseNum() {
-		return courseNum;
+	public int getcourseId() {
+		return courseId;
 	}
 
-	public void setCourseNum(int courseNum) {
-		this.courseNum = courseNum;
+	public void setcourseId(int courseId) {
+		this.courseId = courseId;
 	}
 
 	public String getCourseName() {
@@ -49,19 +46,17 @@ public class CourseVO {
 		this.semester = semester;
 	}
 
-	public Time getTime() {
-		return time;
+	public String getCourse_time() {
+		return course_time;
 	}
 
-	public void setTime(Time time) {
-		this.time = time;
+	public void setCourse_time(String course_time) {
+		this.course_time = course_time;
 	}
 
 	@Override
 	public String toString() {
-		return "CourseVO [courseNum=" + courseNum + ", courseName=" + courseName + ", semester=" + semester + ", time="
-				+ time + "]";
+		return "CourseVO [courseId=" + courseId + ", courseName=" + courseName + ", semester=" + semester
+				+ ", course_time=" + course_time + "]";
 	}
-	
-	
 }

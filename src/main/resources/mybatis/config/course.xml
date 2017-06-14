@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sql Mapper -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="course">
+
+	<resultMap type="takeCourseVO" id="takeCourseRM">
+		<result column="courseId" property="courseVO.courseId" />
+		<result column="id" property="ajouMemberVO.id" />
+	</resultMap>
+
+
+	<select id="courselist" resultType="courseVO" resultMap="takeCourseRM">
+		SELECT C.COURSENAME
+		FROM
+		AJOUMEMBER A, TAKE_COURSE T, COURSES C
+		WHERE
+		A.ID=T.ID AND A.ID=#{id}
+		AND
+		C.COURSEID=T.COURSEID
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+

@@ -5,7 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.ajou.springmvc.dao.CourseDAO;
 import org.ajou.springmvc.dao.MemberDAO;
+import org.ajou.springmvc.model.CourseVO;
 import org.ajou.springmvc.model.MembershipVO;
 import org.ajou.springmvc.model.TakeCourseVO;
 import org.springframework.stereotype.Controller;
@@ -24,7 +26,8 @@ public class MemberController {
 	private MembershipVO membershipVO;
 	@Resource
 	private MemberDAO memberDAO;
-
+	@Resource
+	private CourseDAO courseDAO;
 	@Resource
 	private TakeCourseVO takeCourseVO;
 
@@ -39,7 +42,9 @@ public class MemberController {
 		} else if (mvo.getAjouMemberVO().getClassification() == 1) {
 			System.out.println("교수권한");
 			request.getSession().setAttribute("mvo", mvo);
+			System.out.println("로그인한 아이디:"+mvo.getAjouMemberVO().getId());
 			return new ModelAndView("login_success");
+			//return new ModelAndView("redirect:courseList.do?id="+ mvo.getAjouMemberVO().getId());
 		} else {
 			System.out.println("학생 진입");
 			return new ModelAndView("login_fail");
@@ -51,8 +56,14 @@ public class MemberController {
 		return "";
 	}
 
-	public ModelAndView showCourseList(TakeCourseVO tvo) {
-		return new ModelAndView("");
+	@RequestMapping("courseList.do")
+	public ModelAndView showCourseList(String id) {
+		System.out.println("강의 과목 리스트 진입");
+
+		System.out.println("교수 id check"+id);
+		List<CourseVO> clist = courseDAO.showCourseList(id);
+		System.out.println("dao 진입" + clist);
+		return new ModelAndView("login_success", "clist", clist);
 	}
 
 	@RequestMapping("membertest.do")

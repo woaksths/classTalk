@@ -1,73 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example of Bootstrap 3 Linked List Groups</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/courselist.css">
-	      <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Panel Default</h3>
-                </div>
-                <ul class="list-group">
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="http://www.jquery2dotnet.com/2014/01/two-way-scrolling-in-single-div.html" class="list-group-item active">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Panel Primary</h3>
-                </div>
-                <ul class="list-group">
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="http://www.jquery2dotnet.com/2014/01/jquery-export-table-data-into-ms-excel.html" class="list-group-item active">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Panel Success</h3>
-                </div>
-                <ul class="list-group">
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="http://www.jquery2dotnet.com/2013/12/input-cursor-design-using-css3.html" class="list-group-item active">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Panel Info</h3>
-                </div>
-                <ul class="list-group">
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="http://www.jquery2dotnet.com/2013/12/cool-simple-css-drop-down-menu.html" class="list-group-item active">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                </ul>
-            </div>
-        </div>
-      
+	body{
+	
+		background:   #064879;
+	}
+	.list-group{
+		width: 400px;
+		margin: 200px;
+	}
+    .bs-example{
+    	margin: 300;
+    }
+</style>
+</head>
+<body>
+<div class="bs-example" align="center">
+    <div class="list-group">
+        <a href="#" class="list-group-item active" onclick="disabled()">
+            <span class="glyphicon glyphicon-file""></span> 강의 과목 
+        </a>
+        <a href="${pageContext.request.contextPath}/chatting.do" class="list-group-item">
+            <span class="glyphicon glyphicon-file"></span> 소프트웨어 공학 <span class="badge">5</span>
+        </a>
+        <a href="${pageContext.request.contextPath}/AIchatting.do" class="list-group-item">
+            <span class="glyphicon glyphicon-music"></span> 인공지능 <span class="badge">6</span>
+        </a>
+        <a href="#" class="list-group-item">
+            <span class="glyphicon glyphicon-film"></span> 시스템 프로그래밍 <span class="badge">10</span>
+        </a>
     </div>
 </div>
+</body>
+</html>                                		

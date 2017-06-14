@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 public class AjouMemberVO {
 
 	private String id;
-	private String Sex;
+	private String sex;
 	private int age;
 	private String name;
 	private String grade;
@@ -19,7 +19,7 @@ public class AjouMemberVO {
 	public AjouMemberVO(String id, String sex, int age, String name, String grade, int classification) {
 		super();
 		this.id = id;
-		Sex = sex;
+		this.sex = sex;
 		this.age = age;
 		this.name = name;
 		this.grade = grade;
@@ -35,11 +35,11 @@ public class AjouMemberVO {
 	}
 
 	public String getSex() {
-		return Sex;
+		return sex;
 	}
 
 	public void setSex(String sex) {
-		Sex = sex;
+		this.sex = sex;
 	}
 
 	public int getAge() {
@@ -76,7 +76,7 @@ public class AjouMemberVO {
 
 	@Override
 	public String toString() {
-		return "AjouMemberVO [id=" + id + ", Sex=" + Sex + ", age=" + age + ", name=" + name + ", grade=" + grade
+		return "AjouMemberVO [id=" + id + ", sex=" + sex + ", age=" + age + ", name=" + name + ", grade=" + grade
 				+ ", classification=" + classification + "]";
 	}
 
