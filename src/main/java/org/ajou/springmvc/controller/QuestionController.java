@@ -20,6 +20,14 @@ public class QuestionController {
 		return new ModelAndView("chatting");
 	}
 	
+		@RequestMapping("chatting2.do")
+	public ModelAndView questionList2(HttpServletRequest request, SendQuestionVO sendQuestionVO) {
+		return new ModelAndView("chatting2");
+	}
+	@RequestMapping("popup.do")
+	public ModelAndView tracequestioner2(){
+		return new ModelAndView("popup");
+	}
 	@RequestMapping("AIchatting.do")
 	public ModelAndView showAiChatting(HttpServletRequest request){
 		System.out.println("인공지능 채팅게시판");

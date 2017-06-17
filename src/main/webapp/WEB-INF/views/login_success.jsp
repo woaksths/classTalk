@@ -31,7 +31,7 @@
         <a href="#" class="list-group-item active" onclick="disabled()">
             <span class="glyphicon glyphicon-file""></span> 강의 과목 
         </a>
-        <a href="${pageContext.request.contextPath}/chatting.do" class="list-group-item">
+        <a href="${pageContext.request.contextPath}/chatting2.do" class="list-group-item">
             <span class="glyphicon glyphicon-file"></span> 소프트웨어 공학 <span class="badge">5</span>
         </a>
         <a href="${pageContext.request.contextPath}/AIchatting.do" class="list-group-item">
@@ -40,6 +40,8 @@
         <a href="#" class="list-group-item">
             <span class="glyphicon glyphicon-film"></span> 시스템 프로그래밍 <span class="badge">10</span>
         </a>
+          <br>
+  <button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/logout.do'">로그아웃</button>    
     </div>
 </div>
 </body>

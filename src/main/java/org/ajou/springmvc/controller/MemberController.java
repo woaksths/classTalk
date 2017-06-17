@@ -39,37 +39,41 @@ public class MemberController {
 		if (mvo == null) {
 			System.out.println("회원정보 일치하지 않습니다");
 			return new ModelAndView("login_fail");
-		} else if (mvo.getAjouMemberVO().getClassification() == 1) {
+		} else if (!mvo.getAjouMemberVO().getId().equals("hwang")&&mvo.getAjouMemberVO().getClassification() == 1) {
 			System.out.println("교수권한");
 			request.getSession().setAttribute("mvo", mvo);
-			System.out.println("로그인한 아이디:"+mvo.getAjouMemberVO().getId());
+			System.out.println("로그인한 아이디:" + mvo.getAjouMemberVO().getId());
 			return new ModelAndView("login_success");
-			//return new ModelAndView("redirect:courseList.do?id="+ mvo.getAjouMemberVO().getId());
+			// return new ModelAndView("redirect:courseList.do?id="+
+			// mvo.getAjouMemberVO().getId());
+		} else if (mvo.getAjouMemberVO().getClassification() == 1&&mvo.getAjouMemberVO().getId().equals("hwang")) {
+			return new ModelAndView("login_hwang");
 		} else {
 			System.out.println("학생 진입");
 			return new ModelAndView("login_fail");
 		}
-	}
+}
 
 	@RequestMapping("logout.do")
 	public String logout(HttpServletRequest request) {
-		return "";
+		request.getSession().invalidate();
+		return "home";
 	}
 
 	@RequestMapping("courseList.do")
 	public ModelAndView showCourseList(String id) {
-		System.out.println("강의 과목 리스트 진입");
+		// System.out.println("강의 과목 리스트 진입");
 
-		System.out.println("교수 id check"+id);
+		// System.out.println("교수 id check"+id);
 		List<CourseVO> clist = courseDAO.showCourseList(id);
-		System.out.println("dao 진입" + clist);
+		// System.out.println("dao 진입" + clist);
 		return new ModelAndView("login_success", "clist", clist);
 	}
 
 	@RequestMapping("membertest.do")
 	public ModelAndView showMemberList() {
 
-		System.out.println("컨트롤러 진입 테스트");
+		// System.out.println("컨트롤러 진입 테스트");
 		List<MembershipVO> member = memberDAO.showtest();
 		System.out.println(member);
 		return new ModelAndView("member", "member", member);

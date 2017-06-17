@@ -32,12 +32,13 @@
     							</div>
     							<div class="media-body pad-hor speech-left">
     								<div class="speech">
-    									<a href="#" class="media-heading" >STUDENT</a>
-    									<p>Hi, I want to buy a new shoes.</p>
+    									<a href="${pageContext.request.contextPath}/popup.do" onclick="window.open(this.href,'_blacnk','width=600,height=400'); return false" class="media-heading" data-toggle="modal" data-target="#myModal" >STUDENT</a>
+    									<p>종강 언제하나요? 너무 지루합니다.</p>
     									<p class="speech-time">
     										<i class="fa fa-clock-o fa-fw"></i> 09:23AM
     									</p>
     								</div>
+    								
     							</div>
     						</li>
     						<li class="mar-btm">
